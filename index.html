@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ebda61e3fa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <h1>music player
+            <i class="fas fa-music"></i>
+        </h1>
+        <div class="github">
+            <a href="https://github.com/mohammadyousefvand" target="_blank">
+                <button>
+                    <i class="fab fa-github"></i>
+                    Github
+                </button>
+            </a>
+        </div>
+    </header>
+    <section class="section">
+        <div class="logo-music">
+            <img src="images/logo1.jpg" alt="logo">
+        </div>
+        <audio src="sounds/music1.mp3"></audio>
+        <div>
+            <p class="name-music">
+                Shadmehr Aghili
+            </p>
+        </div>
+        <div class="buttun-up">
+            <div class="backward">
+                <i class="fas fa-backward"></i>
+            </div>
+            <div class="play">
+                <i class="fas fa-play"></i>
+            </div>
+            <div class="forward">
+                <i class="fas fa-forward"></i>
+            </div>
+        </div>
+        <div class="buttun-down">
+            <div class="muted">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div class="loop">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="next-random">
+                <i class="fas fa-random"></i>
+            </div>
+            <div class="speed">
+                1x
+            </div>
+        </div>
+        <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="duration-wrapper">
+                <span id="current-time"></span>
+                <span id="duration"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

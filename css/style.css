@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+:root {
+    --blue: #0099ff;
+    --red: #ff0000;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    background: #e0e5ec;
+
+}
+
+/* header */
+.header {
+    width: 100%;
+    background-color: rgba(42, 52, 84, 1);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h1 {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.github button{
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* cover */
+.logo-music {
+    margin-top: 30px;
+    border: 5px solid #fff;
+    background: #e0e5ec;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    color: rgba(42, 52, 84, 1);
+}
+
+.logo-music img {
+    width: 240px;
+    border-radius: 50%;
+}
+/* animation for cover music */
+.rotate {
+    animation: 35s item infinite linear;
+}
+
+@keyframes item {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.name-music {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.buttun-up {
+    padding: 10px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    gap: 30px;
+    background: #e0e5ec;
+    color: rgba(42, 52, 84, 1);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    color: rgba(42, 52, 84, 1);
+}
+/* play or pause */
+.play {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    background: #e0e5ec;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    font-size: 16px;
+    color: rgba(42, 52, 84, 1);
+    cursor: pointer;
+}
+
+.forward,
+.backward {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    color: rgba(42, 52, 84, 1);
+    background: #e0e5ec;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.forward:hover,
+.backward:hover {
+    background-color: rgba(42, 52, 84, 1);
+    color: #fff;
+}
+
+.buttun-down {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.muted,
+.loop,
+.next-random,
+.speed {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #e0e5ec;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+.muted{
+    color: var(--red);
+}
+.loop,
+.next-random,
+.speed{
+    color: rgba(42, 52, 84, 1);
+}
+/* progress- bar */
+.progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 30px 20px;
+    height: 10px;
+    width: 90%;
+    box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001,
+    inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+  }
+  
+  .progress {
+    background: rgba(42, 52, 84, 1);
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  
+  .duration-wrapper {
+    position: relative;
+    top: -35px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+/* media query */
+
+@media screen and (max-width:530px) {
+    .header h1 {
+        font-size: 20px;
+    }
+    .github button{
+        width: 70px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
