@@ -41,7 +41,7 @@ let dataLogo = [
 ]
 //all name artist or music in project
 let dataNames = [
-    'Ghalbe Man',
+    'Khabe Khosh',
     'Khodetam Midoni',
     'Another Love',
     'Take Me To Church',
