@@ -13,10 +13,11 @@ const nameMusic = $.querySelector('.name-music')
 const loopElem = $.querySelector('.loop')
 const randomMusic = $.querySelector('.next-random')
 const speedMusic = $.querySelector('.speed')
-const currentTimeEl = document.getElementById("current-time");
-const durationEl = document.getElementById("duration");
-const progress = document.getElementById("progress");
-const progressContainer = document.getElementById("progress-container");
+const currentTimeEl = $.getElementById("current-time");
+const durationEl = $.getElementById("duration");
+const progress = $.getElementById("progress");
+const progressContainer = $.getElementById("progress-container");
+const dayNight = $.querySelector('.day-night')
 
 //all music in project
 let dataMusic = [
@@ -48,6 +49,29 @@ let dataNames = [
     'On My Way',
     'Setare Baroon'
 ]
+
+// Dark mode
+dayNight.addEventListener('click', function () {
+    document.body.classList.toggle('dark')
+
+    //localSeorage save last Theme
+    if (document.body.className == 'dark') {
+        localStorage.setItem('theme', 'dark')
+    } else {
+        localStorage.setItem('theme', 'light')
+    }
+})
+
+function localSetTheme() {
+    //check last theme and set
+    let theme = localStorage.getItem('theme')
+
+    if (theme === 'dark') {
+        document.body.classList.add('dark')
+    }
+}
+
+
 //flag play || pause
 let isPlayed = false
 
@@ -55,21 +79,19 @@ let isPlayed = false
 function playSong() {
     isPlayed = true
     playIcon.removeAttribute('class')
-    playIcon.setAttribute('class' , 'fas fa-pause')
+    playIcon.setAttribute('class', 'fas fa-pause')
     audioElem.play()
     logoMusic.classList.add('rotate')
-    playMusic.style.color = '#fff'
-    playMusic.style.backgroundColor = 'rgba(42, 52, 84, 1)'
+    playMusic.classList.add('play-style')
 }
 //pause music
 function pauseSong() {
     isPlayed = false
     playIcon.removeAttribute('class')
-    playIcon.setAttribute('class' , 'fas fa-play')
+    playIcon.setAttribute('class', 'fas fa-play')
     audioElem.pause()
     logoMusic.classList.remove('rotate')
-    playMusic.style.color = 'rgba(42, 52, 84, 1)'
-    playMusic.style.backgroundColor = '#e0e5ec'
+    playMusic.classList.remove('play-style')
 }
 
 //check play || pause with (if)
@@ -109,12 +131,11 @@ function forwardHandler() {
     nameMusic.innerHTML = dataNames[nameNew]
     // change style Play & pause buttun
     audioElem.play()
+    isPlayed = true
     playIcon.removeAttribute('class')
     playIcon.setAttribute('class', 'fas fa-pause')
     logoMusic.classList.add('rotate')
-    playMusic.style.color = '#fff'
-    playMusic.style.backgroundColor = 'rgba(42, 52, 84, 1)'
-
+    playMusic.classList.add('play-style')
 }
 
 function backwardHandler() {
@@ -139,12 +160,11 @@ function backwardHandler() {
     nameMusic.innerHTML = dataNames[nameNew]
     // change style Play & pause buttun
     audioElem.play()
+    isPlayed = true
     playIcon.removeAttribute('class')
     playIcon.setAttribute('class', 'fas fa-pause')
     logoMusic.classList.add('rotate')
-    playMusic.style.color = '#fff'
-    playMusic.style.backgroundColor = 'rgba(42, 52, 84, 1)'
-
+    playMusic.classList.add('play-style')
 }
 //muted buttun function
 function mutedMusicHandler() {
@@ -162,11 +182,11 @@ function mutedMusicHandler() {
 function loopHandler() {
     if (audioElem.hasAttribute('loop') == false) {
         audioElem.setAttribute('loop', '')
-        loopElem.style.color = '#ff0000'
+        loopElem.classList.add('loop-style')
 
     } else {
         audioElem.removeAttribute('loop')
-        loopElem.style.color = 'rgba(42, 52, 84, 1)'
+        loopElem.classList.remove('loop-style')
     }
 }
 //random music buttun function
@@ -184,8 +204,7 @@ function randomMusicHandler() {
     playIcon.removeAttribute('class')
     playIcon.setAttribute('class', 'fas fa-pause')
     logoMusic.classList.add('rotate')
-    playMusic.style.color = '#fff'
-    playMusic.style.backgroundColor = 'rgba(42, 52, 84, 1)'
+    playMusic.classList.add('play-style')
 }
 //speed control buttun function
 function speedMusicHandler() {
@@ -198,51 +217,49 @@ function speedMusicHandler() {
     } else if (audioElem.playbackRate == 2) {
         audioElem.playbackRate = 4
         speedMusic.innerHTML = '4x'
-        speedMusic.style.backgroundColor = '#ff0000'
-        speedMusic.style.color = '#fff'
+        speedMusic.classList.add('speed-style')
     } else {
         audioElem.playbackRate = 1
         speedMusic.innerHTML = '1x'
-        speedMusic.style.backgroundColor = '#e0e5ec'
-        speedMusic.style.color = 'rgba(42, 52, 84, 1)'
+        speedMusic.classList.remove('speed-style')
     }
 }
 
 // Update Progress Bar & Time
 function updateProgressBar(e) {
     if (isPlayed) {
-      const duration = e.srcElement.duration;
-      const currentTime = e.srcElement.currentTime;
-      // Update progress bar width
-      const progressPercent = (currentTime / duration) * 100;
-      progress.style.width = progressPercent + "%";
-      // Calculate display for duration
-      const durationMinutes = Math.floor(duration / 60);
-      let durationSeconds = Math.floor(duration % 60);
-      if (durationSeconds < 10) {
-        durationSeconds = "0" + durationSeconds;
-      }
-      // Delay switching duration Element to avoid NaN
-      if (durationSeconds) {
-        durationEl.textContent = durationMinutes + " : " + durationSeconds;
-      }
-      // Calculate display for currentTime
-      const currentMinutes = Math.floor(currentTime / 60);
-      let currentSeconds = Math.floor(currentTime % 60);
-      if (currentSeconds < 10) {
-        currentSeconds = "0" + currentSeconds;
-      }
-      currentTimeEl.textContent = currentMinutes + " : " + currentSeconds;
+        const duration = e.srcElement.duration;
+        const currentTime = e.srcElement.currentTime;
+        // Update progress bar width
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = progressPercent + "%";
+        // Calculate display for duration
+        const durationMinutes = Math.floor(duration / 60);
+        let durationSeconds = Math.floor(duration % 60);
+        if (durationSeconds < 10) {
+            durationSeconds = "0" + durationSeconds;
+        }
+        // Delay switching duration Element to avoid NaN
+        if (durationSeconds) {
+            durationEl.textContent = durationMinutes + " : " + durationSeconds;
+        }
+        // Calculate display for currentTime
+        const currentMinutes = Math.floor(currentTime / 60);
+        let currentSeconds = Math.floor(currentTime % 60);
+        if (currentSeconds < 10) {
+            currentSeconds = "0" + currentSeconds;
+        }
+        currentTimeEl.textContent = currentMinutes + " : " + currentSeconds;
     }
-  }
-  
-  // Set Progress Bar
-  function setProgressBar(e) {
+}
+
+// Set Progress Bar
+function setProgressBar(e) {
     const width = this.clientWidth;
     const clickX = e.offsetX;
     const duration = audioElem.duration;
     audioElem.currentTime = (clickX / width) * duration;
-  }
+}
 
 //Events in Project
 forwardMusic.addEventListener('click', forwardHandler)
@@ -260,3 +277,5 @@ speedMusic.addEventListener('click', speedMusicHandler)
 audioElem.addEventListener("timeupdate", updateProgressBar);
 
 progressContainer.addEventListener("click", setProgressBar);
+
+window.addEventListener('load', localSetTheme)

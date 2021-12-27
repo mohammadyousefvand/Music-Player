@@ -7,16 +7,21 @@
 }
 
 :root {
-    --blue: #0099ff;
     --red: #ff0000;
+    --main-color: #e0e5ec;
+    --white: #fff;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
     min-height: 100vh;
-    background: #e0e5ec;
+    background-color: var(--main-color);
+}
 
+.dark {
+    background-color: #575757;
+    color: #fff;
 }
 
 /* header */
@@ -28,19 +33,23 @@ body {
     justify-content: space-between;
 }
 
+.dark .header {
+    background-color: #222222;
+}
+
 .header h1 {
-    color: #fff;
+    color: var(--main-color);
     text-transform: capitalize;
 }
 
-.github button{
+.github button {
     width: 100px;
     height: 40px;
     font-size: 16px;
     background: transparent;
-    color: #fff;
+    color: var(--main-color);
     outline: none;
-    border: 2px solid #fff;
+    border: 2px solid var(--main-color);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -52,11 +61,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 /* cover */
 .logo-music {
     margin-top: 30px;
-    border: 5px solid #fff;
-    background: #e0e5ec;
+    border: 5px solid var(white);
+    background: var(--main-color);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     box-shadow:
@@ -70,10 +80,17 @@ body {
     color: rgba(42, 52, 84, 1);
 }
 
+.dark .logo-music {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -3px -3px 10px #7f7f7f;
+}
+
 .logo-music img {
     width: 240px;
     border-radius: 50%;
 }
+
 /* animation for cover music */
 .rotate {
     animation: 35s item infinite linear;
@@ -102,7 +119,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 30px;
-    background: #e0e5ec;
+    background: var(--main-color);
     color: rgba(42, 52, 84, 1);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
@@ -116,13 +133,20 @@ body {
         inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
     color: rgba(42, 52, 84, 1);
 }
+
+.dark .buttun-up {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -3px -3px 10px #7f7f7f;
+}
+
 /* play or pause */
 .play {
     width: 70px;
     height: 70px;
     line-height: 70px;
     border-radius: 50%;
-    background: #e0e5ec;
+    background: var(--main-color);
     text-align: center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
@@ -137,6 +161,23 @@ body {
     font-size: 16px;
     color: rgba(42, 52, 84, 1);
     cursor: pointer;
+}
+
+.play-style {
+    background-color: rgba(42, 52, 84, 1);
+    color: #fff;
+}
+
+.dark .play-style {
+    background-color: var(--main-color);
+    color: #575757;
+}
+
+.dark .play {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -3px -3px 10px #7f7f7f;
+    color: var(--white);
 }
 
 .forward,
@@ -147,7 +188,7 @@ body {
     border-radius: 50%;
     text-align: center;
     color: rgba(42, 52, 84, 1);
-    background: #e0e5ec;
+    background: var(--main-color);
     text-align: center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
@@ -163,10 +204,30 @@ body {
     cursor: pointer;
 }
 
+.dark .forward {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -2px -2px 10px #7f7f7f;
+    color: var(--white);
+}
+
+.dark .backward {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -2px -2px 10px #7f7f7f;
+    color: var(--white);
+}
+
 .forward:hover,
 .backward:hover {
     background-color: rgba(42, 52, 84, 1);
-    color: #fff;
+    color: var(--white);
+}
+
+.dark .forward:hover,
+.dark .backward:hover {
+    background-color: var(--main-color);
+    color: #575757;
 }
 
 .buttun-down {
@@ -180,16 +241,23 @@ body {
 .muted,
 .loop,
 .next-random,
-.speed {
+.speed,
+.day-night {
     width: 40px;
     height: 40px;
     line-height: 40px;
     border-radius: 10px;
     text-align: center;
-    background-color: #e0e5ec;
     text-align: center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.shadow {
+    background-color: var(--main-color);
     box-shadow:
         -7px -7px 20px 0px #fff9,
         -4px -4px 5px 0px #fff9,
@@ -198,50 +266,79 @@ body {
         inset 0px 0px 0px 0px #fff9,
         inset 0px 0px 0px 0px #0001,
         inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
-    font-size: 16px;
-    cursor: pointer;
-    user-select: none;
 }
-.muted{
+
+.dark .shadow {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -2px -2px 10px #7f7f7f;
+    color: var(--white);
+}
+
+.muted {
     color: var(--red);
 }
+
 .loop,
 .next-random,
-.speed{
+.speed,
+.day-night {
     color: rgba(42, 52, 84, 1);
 }
+
+.loop-style {
+    color: var(--red);
+}
+
+.speed-style {
+    color: var(--white);
+    background-color: var(--red);
+}
+
 /* progress- bar */
 .progress-container {
-    background: #fff;
+    background: var(--white);
     border-radius: 5px;
     cursor: pointer;
     margin: 30px 20px;
     height: 10px;
     width: 90%;
     box-shadow:
-    -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001,
-    inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001,
-    inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
-  }
-  
-  .progress {
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+}
+
+.dark .progress-container {
+    background: #575757;
+    box-shadow: 5px 5px 10px #2f2f2f,
+        -2px -2px 10px #7f7f7f;
+}
+
+.progress {
     background: rgba(42, 52, 84, 1);
     border-radius: 5px;
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
-  }
-  
-  .duration-wrapper {
+    user-select: none;
+}
+
+.dark .progress {
+    background: var(--main-color);
+}
+
+.duration-wrapper {
     position: relative;
     top: -35px;
     display: flex;
     justify-content: space-between;
-  }
+    user-select: none;
+}
 
 /* media query */
 
@@ -249,7 +346,8 @@ body {
     .header h1 {
         font-size: 20px;
     }
-    .github button{
+
+    .github button {
         width: 70px;
         height: 30px;
         font-size: 12px;
