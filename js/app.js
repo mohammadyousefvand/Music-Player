@@ -318,11 +318,6 @@ randomMusic.addEventListener('click', randomMusicHandler)
 speedMusic.addEventListener('click', speedMusicHandler)
 audioElem.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
-<<<<<<< HEAD
 window.addEventListener('load', localSetTheme)
 openList.addEventListener('click', openListMusic)
 closeList.addEventListener('click', closeListMusic)
-=======
-
-window.addEventListener('load', localSetTheme)
->>>>>>> 8f83f002c130a88df9936c1d6e16911551fc5ef4
