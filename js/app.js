@@ -1,6 +1,6 @@
 let $ = document
 //selected 
-const audioElem = $.querySelector('audio')
+const audioElem = $.querySelector('.audio-defult')
 const playMusic = $.querySelector('.play')
 const playIcon = $.querySelector('.fa-play')
 const loopIcon = $.querySelector('.fa-sync-alt')
@@ -18,6 +18,11 @@ const durationEl = $.getElementById("duration");
 const progress = $.getElementById("progress");
 const progressContainer = $.getElementById("progress-container");
 const dayNight = $.querySelector('.day-night')
+const sunMoon = $.querySelector('.sun-moon')
+const iconList = $.querySelectorAll('.click-play')
+const openList = $.querySelector('.open-list')
+const musicListContainer = $.querySelector('.list-music')
+const closeList = $.querySelector('.close-list')
 
 //all music in project
 let dataMusic = [
@@ -57,17 +62,25 @@ dayNight.addEventListener('click', function () {
     //localSeorage save last Theme
     if (document.body.className == 'dark') {
         localStorage.setItem('theme', 'dark')
+        sunMoon.className = 'fas fa-sun'
+        localStorage.setItem('icon', 'fas fa-sun')
     } else {
         localStorage.setItem('theme', 'light')
+        sunMoon.className = 'fas fa-moon'
+        localStorage.setItem('icon', 'fas fa-moon')
     }
 })
 
 function localSetTheme() {
     //check last theme and set
     let theme = localStorage.getItem('theme')
+    let iconTheme = localStorage.getItem('icon')
 
     if (theme === 'dark') {
         document.body.classList.add('dark')
+        sunMoon.className = iconTheme
+    } else {
+        sunMoon.className = iconTheme
     }
 }
 
@@ -145,17 +158,17 @@ function backwardHandler() {
     nameNew--
     //music
     if (audioNew < 0) {
-        audioNew = 6
+        audioNew = dataMusic.length - 1
     }
     audioElem.setAttribute('src', dataMusic[audioNew])
     //image
     if (logoNew < 0) {
-        logoNew = 6
+        logoNew = dataLogo.length - 1
     }
     logoMusic.setAttribute('src', dataLogo[logoNew])
     //title
     if (nameNew < 0) {
-        nameNew = 6
+        nameNew = dataNames.length - 1
     }
     nameMusic.innerHTML = dataNames[nameNew]
     // change style Play & pause buttun
@@ -250,6 +263,10 @@ function updateProgressBar(e) {
             currentSeconds = "0" + currentSeconds;
         }
         currentTimeEl.textContent = currentMinutes + " : " + currentSeconds;
+
+        if (duration == currentTime) {
+            logoMusic.classList.remove('rotate')
+        }
     }
 }
 
@@ -261,21 +278,46 @@ function setProgressBar(e) {
     audioElem.currentTime = (clickX / width) * duration;
 }
 
+function openListMusic() {
+    musicListContainer.classList.add('openlist')
+}
+
+function closeListMusic() {
+    musicListContainer.classList.remove('openlist')
+}
+
+//Music list Play
+
+let nameMusicList;
+
+iconList.forEach(function (item) {
+    item.addEventListener('click', function (event) {
+        musicListContainer.classList.remove('openlist')
+
+        nameMusicList = event.target.dataset.name
+
+        audioElem.setAttribute('src', nameMusicList)
+        playSong()
+
+        let searchIndex = dataMusic.findIndex(function (item) {
+            return item == nameMusicList
+        })
+
+        logoMusic.setAttribute('src', dataLogo[searchIndex])
+
+        nameMusic.innerHTML = dataNames[searchIndex]
+    })
+})
+
 //Events in Project
 forwardMusic.addEventListener('click', forwardHandler)
-
 backwardMusic.addEventListener('click', backwardHandler)
-
 mutedMusic.addEventListener('click', mutedMusicHandler)
-
 loopElem.addEventListener('click', loopHandler)
-
 randomMusic.addEventListener('click', randomMusicHandler)
-
 speedMusic.addEventListener('click', speedMusicHandler)
-
 audioElem.addEventListener("timeupdate", updateProgressBar);
-
 progressContainer.addEventListener("click", setProgressBar);
-
 window.addEventListener('load', localSetTheme)
+openList.addEventListener('click', openListMusic)
+closeList.addEventListener('click', closeListMusic)
