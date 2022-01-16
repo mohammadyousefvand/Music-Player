@@ -18,9 +18,9 @@ https://mohammadyousefvand.github.io/Music-Player/
    🔹 Play Next & Back music <br>
    🔹 PlayBackRate 1x 1.5x 2x 4x <br>
    🔹 Muted music 🔊 🔈 <br>
+   🔹 Dark mode <br>
    🔹 Responsive for all Device <br>
 
 🔷 Fature Feature: <br>
 
-   🔹 Dark mode <br>
    🔹 Change volume <br>
