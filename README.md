@@ -21,6 +21,3 @@ https://mohammadyousefvand.github.io/Music-Player/
    🔹 Dark mode <br>
    🔹 Responsive for all Device <br>
 
-🔷 Fature Feature: <br>
-
-   🔹 Change volume <br>

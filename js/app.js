@@ -218,6 +218,7 @@ function randomMusicHandler() {
     playIcon.setAttribute('class', 'fas fa-pause')
     logoMusic.classList.add('rotate')
     playMusic.classList.add('play-style')
+    isPlayed = true  
 }
 //speed control buttun function
 function speedMusicHandler() {
