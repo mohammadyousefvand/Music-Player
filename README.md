@@ -1,23 +1,19 @@
-<h1> Music Player 🎵 </h1>
+# Music Player 🎵
 
-<h3> Neumorphism design ✅ </h3>
+### Neomorphism design ✅ 
 
-preview 👇 <br>
-https://mohammadyousefvand.github.io/Music-Player/
+**preview** 👇 
+### [click Me](https://mohammadyousefvand.github.io/Music-Player/)
 
-
-<hr />
-
-![Screenshot from 2021-12-25 20-18-22](https://user-images.githubusercontent.com/91375726/147401120-f4c7e9b2-48d3-43d0-88a2-3630a5a17b41.png)
-
-🔷 Features: <br>
-
-   🔹 Play music <br>
-   🔹 Play random 🔀 <br>
-   🔹 Replay music 🔁 <br>
-   🔹 Play Next & Back music <br>
-   🔹 PlayBackRate 1x 1.5x 2x 4x <br>
-   🔹 Muted music 🔊 🔈 <br>
-   🔹 Dark mode <br>
-   🔹 Responsive for all Device <br>
-
+***Features  :***
+   - Play music
+   - Play random 
+   - Replay music 
+   - Play Next & Back music
+   - PlayBackRate 1x 1.5x 2x 4x
+   - Muted music
+   - Dark mode
+   - Responsive for all Device
+   - Status bar
+   - Count downtime & Duration time
+   - List music
